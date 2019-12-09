@@ -1,10 +1,4 @@
-package com.darjuan.mall.api; /**
- * <p></p>
- *
- * @author liujianbo
- * @version v1  com.darjuan.mall.api.MallApp.java
- * @since 2019-12-08 15:38
- */
+package com.darjuan.mall.web;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -20,7 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @ComponentScan(basePackages = {"com.darjuan.mall"})
 @MapperScan(basePackages = {"com.darjuan.mall.dao.mapper"})
-public class MallApp {
+public class MallWebApp {
 
   /**
    * 容器启动主方法
@@ -28,6 +22,6 @@ public class MallApp {
    * @param args 入参
    */
   public static void main(String[] args) {
-    SpringApplication.run(MallApp.class, args);
+    SpringApplication.run(MallWebApp.class, args);
   }
 }

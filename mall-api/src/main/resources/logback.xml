@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="false" scan="false">
+<configuration debug="true" scan="false">
   <property name="APP_NAME" value="mall"/>
   <property name="LOGPATH" value="./logs"/>
   <contextName>${APP_NAME}</contextName>
