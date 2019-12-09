@@ -1780,3 +1780,102 @@ java.net.ConnectException: Connection refused (Connection refused)
 2019-12-09 16:11:44.766 [xxl-job, executor JobLogFileCleanThread] INFO  com.xxl.job.core.thread.JobLogFileCleanThread - >>>>>>>>>>> xxl-job, executor JobLogFileCleanThread thread destory.
 2019-12-09 16:11:44.766 [xxl-job, executor TriggerCallbackThread] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor callback thread destory.
 2019-12-09 16:11:44.766 [Thread-4] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor retry callback thread destory.
+2019-12-09 16:22:33.746 [main] WARN  org.springframework.boot.StartupInfoLogger - InetAddress.getLocalHost().getHostName() took 5003 milliseconds to respond. Please verify your network configuration (macOS machines may need to add entries to /etc/hosts).
+2019-12-09 16:22:38.756 [main] INFO  com.darjuan.mall.api.MallApiApp - Starting MallApiApp on liujianbos-MacBook-Pro.local with PID 25909 (/Users/liujianbo/proj/v-mall/mall-api/target/classes started by liujianbo in /Users/liujianbo/proj/v-mall)
+2019-12-09 16:22:38.757 [main] INFO  com.darjuan.mall.api.MallApiApp - The following profiles are active: dev
+2019-12-09 16:22:39.080 [main] INFO  com.darjuan.mall.api.config.JobStartCondition - 是否启动job:true
+2019-12-09 16:22:39.095 [main] INFO  com.darjuan.mall.api.config.JobStartCondition - 是否启动job:true
+2019-12-09 16:22:39.335 [main] INFO  com.darjuan.mall.api.config.JobStartCondition - 是否启动job:true
+2019-12-09 16:22:39.948 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8095 (http)
+2019-12-09 16:22:39.959 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8095"]
+2019-12-09 16:22:39.959 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2019-12-09 16:22:39.959 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.29]
+2019-12-09 16:22:40.045 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2019-12-09 16:22:40.045 [main] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1058 ms
+2019-12-09 16:23:00.500 [main] INFO  com.darjuan.mall.api.config.XxlJobConfig - >>>>>>>>>>> xxl-job config init.
+2019-12-09 16:23:00.507 [main] INFO  com.xxl.job.core.executor.XxlJobExecutor - >>>>>>>>>>> xxl-job register jobhandler success, name:demoJobHandler, jobHandler:com.darjuan.mall.jobs.DemoJobHandler@6a0ac48e
+2019-12-09 16:23:05.536 [main] INFO  c.xxl.rpc.remoting.provider.XxlRpcProviderFactory - >>>>>>>>>>> xxl-rpc, provider factory add service success. serviceKey = com.xxl.job.core.biz.ExecutorBiz, serviceBean = class com.xxl.job.core.biz.impl.ExecutorBizImpl
+2019-12-09 16:23:05.673 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-12-09 16:23:05.877 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8095"]
+2019-12-09 16:23:05.890 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8095 (http) with context path ''
+2019-12-09 16:23:05.893 [main] INFO  com.darjuan.mall.api.MallApiApp - Started MallApiApp in 47.446 seconds (JVM running for 53.347)
+2019-12-09 16:23:10.765 [Thread-99] INFO  com.xxl.rpc.remoting.net.Server - >>>>>>>>>>> xxl-rpc remoting server start success, nettype = com.xxl.rpc.remoting.net.impl.netty_http.server.NettyHttpServer, port = 9999
+2019-12-09 16:23:10.787 [xxl-job, executor ExecutorRegistryThread] ERROR com.xxl.job.core.util.XxlJobRemotingUtil - Connection refused (Connection refused)
+java.net.ConnectException: Connection refused (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:339)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:357)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1220)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1156)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1050)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:984)
+	at com.xxl.job.core.util.XxlJobRemotingUtil.postBody(XxlJobRemotingUtil.java:54)
+	at com.xxl.job.core.biz.client.AdminBizClient.registry(AdminBizClient.java:41)
+	at com.xxl.job.core.thread.ExecutorRegistryThread$1.run(ExecutorRegistryThread.java:48)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-09 16:23:10.789 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job registry fail, registryParam:RegistryParam{registryGroup='EXECUTOR', registryKey='v-mall', registryValue='172.16.38.108:9999'}, registryResult:ReturnT [code=500, msg=xxl-rpc remoting error(Connection refused (Connection refused)), for url : http://127.0.0.1:8080/xxl-job-admin/api/registry, content=null]
+2019-12-09 16:23:38.798 [http-nio-8095-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-12-09 16:23:38.798 [http-nio-8095-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-12-09 16:23:38.813 [http-nio-8095-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 15 ms
+2019-12-09 16:23:40.791 [xxl-job, executor ExecutorRegistryThread] ERROR com.xxl.job.core.util.XxlJobRemotingUtil - Connection refused (Connection refused)
+java.net.ConnectException: Connection refused (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:339)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:357)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1220)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1156)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1050)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:984)
+	at com.xxl.job.core.util.XxlJobRemotingUtil.postBody(XxlJobRemotingUtil.java:54)
+	at com.xxl.job.core.biz.client.AdminBizClient.registry(AdminBizClient.java:41)
+	at com.xxl.job.core.thread.ExecutorRegistryThread$1.run(ExecutorRegistryThread.java:48)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-09 16:23:40.792 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job registry fail, registryParam:RegistryParam{registryGroup='EXECUTOR', registryKey='v-mall', registryValue='172.16.38.108:9999'}, registryResult:ReturnT [code=500, msg=xxl-rpc remoting error(Connection refused (Connection refused)), for url : http://127.0.0.1:8080/xxl-job-admin/api/registry, content=null]
+2019-12-09 16:23:54.792 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2019-12-09 16:23:54.793 [Thread-99] INFO  com.xxl.rpc.remoting.net.Server - >>>>>>>>>>> xxl-rpc remoting server stop.
+2019-12-09 16:23:54.793 [xxl-job, executor ExecutorRegistryThread] ERROR com.xxl.job.core.util.XxlJobRemotingUtil - Connection refused (Connection refused)
+java.net.ConnectException: Connection refused (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at sun.net.NetworkClient.doConnect(NetworkClient.java:175)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:463)
+	at sun.net.www.http.HttpClient.openServer(HttpClient.java:558)
+	at sun.net.www.http.HttpClient.<init>(HttpClient.java:242)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:339)
+	at sun.net.www.http.HttpClient.New(HttpClient.java:357)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(HttpURLConnection.java:1220)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1156)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1050)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(HttpURLConnection.java:984)
+	at com.xxl.job.core.util.XxlJobRemotingUtil.postBody(XxlJobRemotingUtil.java:54)
+	at com.xxl.job.core.biz.client.AdminBizClient.registryRemove(AdminBizClient.java:46)
+	at com.xxl.job.core.thread.ExecutorRegistryThread$1.run(ExecutorRegistryThread.java:84)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-09 16:23:54.794 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job registry-remove fail, registryParam:RegistryParam{registryGroup='EXECUTOR', registryKey='v-mall', registryValue='172.16.38.108:9999'}, registryResult:ReturnT [code=500, msg=xxl-rpc remoting error(Connection refused (Connection refused)), for url : http://127.0.0.1:8080/xxl-job-admin/api/registryRemove, content=null]
+2019-12-09 16:23:54.794 [xxl-job, executor ExecutorRegistryThread] INFO  com.xxl.job.core.thread.ExecutorRegistryThread - >>>>>>>>>>> xxl-job, executor registry thread destory.
+2019-12-09 16:23:54.794 [SpringContextShutdownHook] INFO  com.xxl.rpc.remoting.net.Server - >>>>>>>>>>> xxl-rpc remoting server destroy success.
+2019-12-09 16:23:54.795 [xxl-job, executor JobLogFileCleanThread] INFO  com.xxl.job.core.thread.JobLogFileCleanThread - >>>>>>>>>>> xxl-job, executor JobLogFileCleanThread thread destory.
+2019-12-09 16:23:54.796 [xxl-job, executor TriggerCallbackThread] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor callback thread destory.
+2019-12-09 16:23:54.797 [Thread-88] INFO  com.xxl.job.core.thread.TriggerCallbackThread - >>>>>>>>>>> xxl-job, executor retry callback thread destory.
