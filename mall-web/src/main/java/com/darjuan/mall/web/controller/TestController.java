@@ -33,4 +33,13 @@ public class TestController {
     mv.setViewName("/user/show.html");
     return mv;
   }
+
+  @GetMapping(value = "/user/detail")
+  public ModelAndView detail(HttpServletRequest req) {
+    int a= 1/0;
+    ModelAndView mv = new ModelAndView();
+    mv.addObject("user", userService.getUser().get(0));
+    mv.setViewName("/user/show.html");
+    return mv;
+  }
 }

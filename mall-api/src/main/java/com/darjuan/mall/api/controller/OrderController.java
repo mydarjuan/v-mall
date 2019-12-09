@@ -37,7 +37,8 @@ public class OrderController {
   }
 
   @GetMapping("/detail")
-  public Object getOrder() {
+  public Object getOrder(){
+    int a = 1/0;
     return 1;
   }
 
