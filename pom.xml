@@ -36,10 +36,17 @@
     <druid.version>1.1.10</druid.version>
     <xxl-job.version>2.1.1</xxl-job.version>
     <fastjson.version>1.2.62</fastjson.version>
+    <redis.version>2.2.1.RELEASE</redis.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-redis</artifactId>
+        <version>${redis.version}</version>
+      </dependency>
 
       <dependency>
         <groupId>com.alibaba</groupId>
