@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Primary;
  * @date 2019-12-08
  */
 @Configuration
-public class MallDruidConfigration extends DruidDataSource {
+public class DruidConfig extends DruidDataSource {
 
   @Value("${spring.datasource.url}")
   private String url;

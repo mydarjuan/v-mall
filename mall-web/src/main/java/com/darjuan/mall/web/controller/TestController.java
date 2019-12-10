@@ -29,7 +29,7 @@ public class TestController {
   @GetMapping(value = "/user/list")
   public ModelAndView test(HttpServletRequest req) {
     ModelAndView mv = new ModelAndView();
-    mv.addObject("user", userService.getUser().get(0));
+    mv.addObject("user", userService.getOne(null));
     mv.setViewName("/user/show.html");
     return mv;
   }
@@ -38,7 +38,7 @@ public class TestController {
   public ModelAndView detail(HttpServletRequest req) {
     int a= 1/0;
     ModelAndView mv = new ModelAndView();
-    mv.addObject("user", userService.getUser().get(0));
+    mv.addObject("user", userService.getOne(null));
     mv.setViewName("/user/show.html");
     return mv;
   }

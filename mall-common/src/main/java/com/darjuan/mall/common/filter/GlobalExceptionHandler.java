@@ -1,6 +1,5 @@
 package com.darjuan.mall.common.filter;
 
-import com.darjuan.mall.common.response.JsonResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,6 +20,6 @@ public class GlobalExceptionHandler {
 
   private <T extends Throwable> String exceptionFormat(Integer code, T ex) {
     ex.printStackTrace();
-    return JsonResult.failed(code, ex.getMessage());
+    return "异常code:" + code + ",异常信息:" + ex.getMessage();
   }
 }
