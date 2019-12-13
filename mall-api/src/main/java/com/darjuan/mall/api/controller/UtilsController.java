@@ -3,6 +3,7 @@ package com.darjuan.mall.api.controller;
 import com.alibaba.fastjson.JSON;
 import com.darjuan.mall.common.utils.RedisUtil;
 import com.darjuan.mall.common.dto.ReqDto;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,14 +23,16 @@ public class UtilsController {
   @Autowired
   private RedisUtil redisUtil;
 
+  @ApiOperation(value = "添加缓存对象", notes = "添加缓存对象")
   @PostMapping("/redis/set")
-  public Object addOrder(@RequestBody ReqDto req) {
+  public Object redisSet(@RequestBody ReqDto req) {
     redisUtil.set(req.getKey(), JSON.toJSON(req));
     return true;
   }
 
+  @ApiOperation(value = "获取缓存对象", notes = "获取缓存对象")
   @GetMapping("/redis/get/{key}")
-  public Object getOrders(@PathVariable(value = "key", required = false) String key) {
+  public Object redisGet(@PathVariable(value = "key", required = false) String key) {
     return redisUtil.get(key);
   }
 }
