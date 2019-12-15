@@ -39,10 +39,23 @@
     <redis.version>2.2.1.RELEASE</redis.version>
     <dubbo.version>2.7.4.1</dubbo.version>
     <swagger2.version>2.9.2</swagger2.version>
+    <spring-boot-admin.version>2.2.0</spring-boot-admin.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+
+      <dependency>
+        <groupId>de.codecentric</groupId>
+        <artifactId>spring-boot-admin-starter-client</artifactId>
+        <version>${spring-boot-admin.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>de.codecentric</groupId>
+        <artifactId>spring-boot-admin-starter-server</artifactId>
+        <version>${spring-boot-admin.version}</version>
+      </dependency>
 
       <dependency>
         <groupId>io.springfox</groupId>
