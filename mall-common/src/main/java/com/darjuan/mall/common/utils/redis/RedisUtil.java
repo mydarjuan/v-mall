@@ -1,4 +1,4 @@
-package com.darjuan.mall.common.utils;
+package com.darjuan.mall.common.utils.redis;
 
 import java.util.List;
 import java.util.Map;
@@ -69,7 +69,6 @@ public class RedisUtil {
    *
    * @param key 可以传一个值 或多个
    */
-  @SuppressWarnings("unchecked")
   public void delete(String... key) {
     if (key != null && key.length > 0) {
       if (key.length == 1) {

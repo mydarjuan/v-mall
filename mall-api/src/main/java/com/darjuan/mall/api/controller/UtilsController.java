@@ -1,7 +1,7 @@
 package com.darjuan.mall.api.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.darjuan.mall.common.utils.RedisUtil;
+import com.darjuan.mall.common.utils.redis.RedisUtil;
 import com.darjuan.mall.common.dto.ReqDto;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
