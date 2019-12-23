@@ -1,8 +1,15 @@
 package com.darjuan.mall.common.filter;
 
+import com.darjuan.mall.common.dto.ResResult;
+import java.util.stream.Collectors;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  * @author 刘建波
@@ -13,13 +20,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ResponseBody
 public class GlobalExceptionHandler {
 
-  @ExceptionHandler(Exception.class)
-  public String runtimeExceptionHandler(Exception ex) {
-    return exceptionFormat(1, ex);
-  }
+  @ExceptionHandler(MethodArgumentNotValidException.class)
+  @ResponseBody
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
+  public ResResult handleMethodArgumentNotValidException(MethodArgumentNotValidException exception) {
 
-  private <T extends Throwable> String exceptionFormat(Integer code, T ex) {
-    ex.printStackTrace();
-    return "异常code:" + code + ",异常信息:" + ex.getMessage();
+    BindingResult bindingResult = exception.getBindingResult();
+    return ResResult.fail(bindingResult.getFieldErrors());
   }
 }

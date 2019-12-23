@@ -1,11 +1,18 @@
 package com.darjuan.mall.api.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.darjuan.mall.common.dto.ResResult;
+import com.darjuan.mall.common.utils.id.IdGenerator;
+import com.darjuan.mall.common.utils.redis.RedisUtil;
+import com.darjuan.mall.model.User;
 import com.darjuan.mall.service.UserService;
 import io.swagger.annotations.ApiOperation;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +26,14 @@ public class UserController {
 
   @Autowired
   private UserService userService;
+
+
+  @Autowired
+  private RedisUtil redisUtil;
+
+
+  @Autowired
+  private IdGenerator idGenerator;
 
   @ApiOperation(value = "获取用户详情", notes = "获取用户详情")
   @GetMapping("/{id}")
@@ -37,5 +52,13 @@ public class UserController {
   public Object getUserList() {
     return ResResult.success(userService.list());
   }
+
+  @ApiOperation(value = "添加用户", notes = "添加用户")
+  @PostMapping("/add")
+  public Object addUser(@Valid @RequestBody User user) {
+    redisUtil.set(idGenerator.generateStringId(), JSON.toJSON(user));
+    return true;
+  }
+
 
 }
