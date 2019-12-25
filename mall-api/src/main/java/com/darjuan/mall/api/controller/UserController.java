@@ -44,6 +44,7 @@ public class UserController {
   @ApiOperation(value = "获取用户详情", notes = "获取用户详情")
   @GetMapping("/detail/{id}")
   public Object getDetail(@PathVariable(value = "id", required = false) Integer id) {
+
     return userService.getById(id);
   }
 
