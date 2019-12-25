@@ -41,6 +41,7 @@
     <swagger2.version>2.9.2</swagger2.version>
     <spring-boot-admin.version>2.2.0</spring-boot-admin.version>
     <common.lang3.version>3.5</common.lang3.version>
+    <devtools.version>2.2.2.RELEASE</devtools.version>
   </properties>
 
   <dependencyManagement>
@@ -131,6 +132,13 @@
         <version>${druid.version}</version>
       </dependency>
 
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <version>${devtools.version}</version>
+      </dependency>
+
     </dependencies>
 
   </dependencyManagement>
@@ -156,6 +164,14 @@
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
           <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
         </configuration>
       </plugin>
 
