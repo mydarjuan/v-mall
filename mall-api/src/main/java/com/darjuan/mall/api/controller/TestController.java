@@ -31,7 +31,6 @@ public class TestController {
   @ResponseBody
   public Object fix(Exception ex) {
     System.out.println("do This");
-
     return ex;
   }
 }
