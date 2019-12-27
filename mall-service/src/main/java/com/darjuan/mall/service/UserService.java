@@ -3,6 +3,7 @@ package com.darjuan.mall.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.darjuan.mall.model.User;
 import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author 刘建波
@@ -10,5 +11,9 @@ import java.util.List;
  */
 public interface UserService extends IService<User> {
 
+  @Transactional
   public List<User> getUserList();
+
+  @Transactional
+  public void addUser(User user);
 }

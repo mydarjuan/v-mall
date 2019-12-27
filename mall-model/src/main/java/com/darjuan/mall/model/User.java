@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class User {
 
-  private Long id;
+  private String id;
 
   @NotBlank(message = "姓名不能为空")
   private String name;

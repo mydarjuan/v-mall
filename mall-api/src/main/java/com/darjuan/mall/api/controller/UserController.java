@@ -52,13 +52,25 @@ public class UserController {
   @ApiOperation(value = "获取用户列表", notes = "获取用户列表")
   @GetMapping("/list")
   public Object getUserList() {
-    return ResResult.success(userService.list());
+
+    User user = new User();
+    user.setAge(1);
+    user.setEmail("test@qq.com");
+    user.setName("test");
+    user.setId(idGenerator.generateStringId());
+    userService.addUser(user);
+
+    return ResResult.success(userService.getUserList());
   }
 
   @ApiOperation(value = "添加用户", notes = "添加用户")
   @PostMapping("/add")
   public Object addUser(@Valid @RequestBody User user) {
+
+    userService.addUser(user);
+
     redisUtil.set(idGenerator.generateStringId(), JSON.toJSON(user));
+
     return true;
   }
 

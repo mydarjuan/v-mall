@@ -25,4 +25,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     return userList;
   }
+
+  @Override
+  public void addUser(User user) {
+    baseMapper.insert(user);
+  }
+
+
 }

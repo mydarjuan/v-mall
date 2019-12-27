@@ -26,4 +26,12 @@ public class GlobalExceptionHandler {
     BindingResult bindingResult = exception.getBindingResult();
     return ResResult.fail(bindingResult.getFieldErrors());
   }
+
+
+  @ExceptionHandler(Exception.class)
+  @ResponseBody
+  @ResponseStatus(HttpStatus.UNAUTHORIZED)
+  public ResResult handleMethodArgumentNotValidException(Exception exception) {
+    return ResResult.fail(exception);
+  }
 }
