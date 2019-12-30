@@ -14,7 +14,7 @@ public class ThreadTest {
 
     private int totalTicketsCount = 0;
 
-    private static Object obj = new Object();
+    private static Object lockObj = new Object();
 
     public void setTickets(Integer ticketsCount) {
       this.totalTicketsCount = this.availableTicketsCount = ticketsCount;
@@ -23,7 +23,7 @@ public class ThreadTest {
     @Override
     public void run() {
       while (availableTicketsCount > 0) {
-        synchronized (obj) {
+        synchronized (lockObj) {
           if (availableTicketsCount > 0) {
             System.out
                 .println(
@@ -51,6 +51,7 @@ public class ThreadTest {
       executor.execute(tt);
     });
   }
+
 
 }
 

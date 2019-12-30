@@ -42,6 +42,8 @@
     <spring-boot-admin.version>2.2.0</spring-boot-admin.version>
     <common.lang3.version>3.5</common.lang3.version>
     <devtools.version>2.2.2.RELEASE</devtools.version>
+    <jupiter.version>5.0.3</jupiter.version>
+    <junit.version>4.12</junit.version>
   </properties>
 
   <dependencyManagement>
@@ -137,6 +139,20 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-devtools</artifactId>
         <version>${devtools.version}</version>
+      </dependency>
+
+
+      <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>${jupiter.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
       </dependency>
 
     </dependencies>
