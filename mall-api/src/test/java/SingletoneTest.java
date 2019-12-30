@@ -8,17 +8,13 @@ class SingletoneTest {
 
   @Test
   void test1() {
-    SingletoneTest enumSingleton1 = getInstance();
+    SingletoneTest enumSingleton1 = SingletoneTestEnum.INSTANCE.getInstance();
     System.out.println(enumSingleton1.hashCode());
 
-    SingletoneTest enumSingleton2 = getInstance();
+    SingletoneTest enumSingleton2 = SingletoneTestEnum.INSTANCE.getInstance();
     System.out.println(enumSingleton2.hashCode());
 
     System.out.println(enumSingleton1.equals(enumSingleton2));
-  }
-
-  public static SingletoneTest getInstance() {
-    return SingletoneTest.SingletoneTestEnum.INSTANCE.getInstance();
   }
 
 
