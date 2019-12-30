@@ -5,13 +5,14 @@
   <packaging>pom</packaging>
 
   <modules>
-    <module>mall-api</module>
+    <module>mall-user-api</module>
     <module>mall-service</module>
     <module>mall-dao</module>
     <module>mall-model</module>
     <module>mall-web</module>
     <module>mall-common</module>
     <module>mall-eureka</module>
+    <module>mall-order-api</module>
   </modules>
 
   <parent>
