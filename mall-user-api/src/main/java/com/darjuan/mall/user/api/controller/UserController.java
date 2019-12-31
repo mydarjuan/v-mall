@@ -7,7 +7,9 @@ import com.darjuan.mall.common.utils.redis.RedisUtil;
 import com.darjuan.mall.model.User;
 import com.darjuan.mall.service.UserService;
 import io.swagger.annotations.ApiOperation;
+
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +19,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author 刘建波
  * @date 2019-12-08
@@ -25,54 +30,56 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
-  @Autowired
-  private UserService userService;
+    @Autowired
+    private UserService userService;
 
 
-  @Autowired
-  private RedisUtil redisUtil;
+    @Autowired
+    private RedisUtil redisUtil;
 
 
-  @Autowired
-  private IdGenerator idGenerator;
+    @Autowired
+    private IdGenerator idGenerator;
 
-  @ApiOperation(value = "获取用户详情", notes = "获取用户详情")
-  @GetMapping("/{id}")
-  public Object getUser(@PathVariable(value = "id", required = false) Integer id) {
-    return userService.getById(id);
-  }
+    @ApiOperation(value = "获取用户详情", notes = "获取用户详情")
+    @GetMapping("/{id}")
+    public Object getUser(@PathVariable(value = "id", required = false) Integer id) {
+        return userService.getById(id);
+    }
 
-  @ApiOperation(value = "获取用户详情", notes = "获取用户详情")
-  @GetMapping("/detail/{id}")
-  public Object getDetail(@PathVariable(value = "id", required = false) Integer id) {
+    @ApiOperation(value = "获取用户详情", notes = "获取用户详情")
+    @GetMapping("/detail/{id}")
+    public Object getDetail(@PathVariable(value = "id", required = false) Integer id) {
 
-    return userService.getById(id);
-  }
+        return userService.getById(id);
+    }
 
-  @ApiOperation(value = "获取用户列表", notes = "获取用户列表")
-  @GetMapping("/list")
-  public Object getUserList() {
+    @ApiOperation(value = "获取用户列表", notes = "获取用户列表")
+    @GetMapping("/list")
+    public Object getUserList() {
 
-    User user = new User();
-    user.setAge(1);
-    user.setEmail("test@qq.com");
-    user.setName("test");
-    user.setId(idGenerator.generateStringId());
-    userService.addUser(user);
+        User user = new User();
+        user.setAge(20);
+        user.setEmail("test@qq.com");
+        user.setName("test");
+        user.setId(idGenerator.generateStringId());
+        userService.addUser(user);
 
-    return ResResult.success(userService.getUserList());
-  }
+        //return ResResult.success(userService.getUserList());
 
-  @ApiOperation(value = "添加用户", notes = "添加用户")
-  @PostMapping("/add")
-  public Object addUser(@Valid @RequestBody User user) {
+        return userService.getUserList();
+    }
 
-    userService.addUser(user);
+    @ApiOperation(value = "添加用户", notes = "添加用户")
+    @PostMapping("/add")
+    public Object addUser(@Valid @RequestBody User user) {
 
-    redisUtil.set(idGenerator.generateStringId(), JSON.toJSON(user));
+        userService.addUser(user);
 
-    return true;
-  }
+        redisUtil.set(idGenerator.generateStringId(), JSON.toJSON(user));
+
+        return true;
+    }
 
 
 }
