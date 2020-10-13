@@ -45,7 +45,7 @@
     <common.lang3.version>3.5</common.lang3.version>
     <devtools.version>2.2.2.RELEASE</devtools.version>
     <jupiter.version>5.0.3</jupiter.version>
-    <junit.version>4.12</junit.version>
+    <junit.version>4.13.1</junit.version>
     <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
   </properties>
 
